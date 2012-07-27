@@ -1,0 +1,434 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta name="author" content="Cuthberet Lo">
+
+<title>Take Off and Landing Performance</title>
+<link href="jquery-mobile/jquery.mobile-1.1.1.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.7.2.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.1.1.min.js" type="text/javascript"></script>
+
+<script language="javascript">
+
+function loadNewPage(temp) {
+	var req = new XMLHttpRequest();
+	req.open("GET", temp, false);
+	req.send(null);
+	var page = req.responseText;
+	document.getElementById("content").innerHTML = page;
+}
+
+</script>
+
+</head> 
+<body> 
+
+
+<div data-role="page" id="page1" data-theme="a">
+	<div data-role="header">
+		<h1>PERF TOLD</h1>
+	</div>
+	<div data-role="content">
+<!--		<ul data-role="listview">
+			<li><a href="#page2" data-transition="slide">Page Two</a></li>
+            <li><a href="#page3" data-transition="flip">Page Three</a></li>
+			<li><a href="#page4">Page Four</a></li>
+            <li><a href="#resultPage">Result Page</a></li>
+		</ul>	
+-->
+
+
+   <div class="ui-grid-b" align="center">
+	<div class="ui-block-a">Block A</div>	
+    <div class="ui-block-b">Registration</div>
+   	<div class="ui-block-c">Block C</div>
+   	<div class="ui-block-a" align="right">B-</div>	
+    <div class="ui-block-b"><input type="text" name="tail" class="userInput"
+			maxlength="3" size="7"></div>
+   	<div class="ui-block-c">Block C</div>
+    	<div class="ui-block-a">Block A</div>	
+    <div class="ui-block-b">AIRPORT or Elevation (LDG only)</div>
+   	<div class="ui-block-c">Block C</div>
+    	<div class="ui-block-a">Block A</div>	
+    <div class="ui-block-b"> <input type="text" name="airport" class="userInput"
+			maxlength="5" size="9"></div>
+   	<div class="ui-block-c">Block C</div>
+    </div>
+    
+    <div class="ui-grid-c" align="center">
+    	<div class="ui-block-a">Block A</div>	
+	    <div class="ui-block-b">
+        <a href="index.html#page2" data-transition="slide" data-role="button" data-mini="true">TO</a>
+<!--        <input type="button" name="takeoff"	class="takeoffButton"
+			value="TO" title="Takeoff" onclick="
+            loadNewPage('#page3');"> -->
+            </div>
+        <div class="ui-block-c"><a href="index.html#page4"  data-transition="slide" data-role="button" data-mini="true">LD</a>
+</div>
+        <div class="ui-block-d">Block D</div>
+    </div>
+    </div>
+	<div data-role="footer">
+		<h4>OPS ENG, CX FOP</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page2" data-theme="a">
+	<div data-role="header">
+		<h1>Page Two</h1>
+	</div>
+	<div data-role="content" id="content">	
+	<!--	<form
+action="http://rtow.no-ip.org:8080/cgi-bin/ACARS2.pl?ACREG='+ document.ACARS2.ACREG.value + '&FLTNUM='+ document.ACARS2.FLTNUM.value + '&ACType='+ document.ACARS2.ACType.value + '&apcode='+ document.ACARS2.apcode.value + '&ICAO='+ document.ACARS2.ICAO.value + '&AGTOW='+ document.ACARS2.AGTOW.value + '&Rwy='+ document.ACARS2.Rwy.value + '&OAT='+ document.ACARS2.OAT.value + '&Surface='+ document.ACARS2.Surface.value + '&QNH='+ document.ACARS2.QNH.value + '&Packs='+ document.ACARS2.Packs.value + '&Rating='+ document.ACARS2.Rating.value + '&FLAP='+ document.ACARS2.FLAP.value + '&MEL1='+ document.ACARS2.MEL1.value + '&MEL2='+ document.ACARS2.MEL2.value + '&CDL='+ document.ACARS2.CDL.value + '&WINDDIR='+ document.ACARS2.WINDDIR.value + '&WINDMAG='+ document.ACARS2.WINDMAG.value + '&WIND='+ document.ACARS2.WIND.value + '&ANTIICE='+ document.ACARS2.ANTIICE.value + '&WANTIICE='+ document.ACARS2.WANTIICE.value" method="GET" data-transition="slide" target="_self">
+-->
+          <div data-role="fieldcontain">
+          
+   
+   <div>B-HOO 747-400 with 524G engines</div>
+<div id="tail">HOP</div>
+<p>Departure port : VHHH (HKG)
+</p>
+<div id="css_table">
+<div class="ui-grid-c" align="center">
+	<div class="ui-block-a">Block A</div>	
+    <div class="ui-block-b">Block B</div>
+   	<div class="ui-block-c">Block C</div>
+   	<div class="ui-block-d">Block D</div>
+    <div class="ui-block-a">AIRPORT</div>	
+    <div class="ui-block-b"><input data-mini="true" type="TEXT" name="apcode" value="HKG"></div>
+   	<div class="ui-block-c"><input data-mini="true" type="TEXT" name="AGTOW" value="396.9"></div>
+   	<div class="ui-block-d">ACT TOW</div>
+    
+    <div class="ui-block-a">RUNWAY</div>	
+    <div class="ui-block-b">
+    <select data-mini="true" name="Rwy" onchange="ChgRwy()"> 
+		<option value="07L">07L</option> 
+		<option value="07LA2">07L TWY A2</option> 
+		<option value="07LA3">07L TWY A3</option> 
+		<option value="07R">07R</option> 
+		<option value="07RJ2">07R TWY J2</option> 
+		<option value="07RJ3">07R TWY J3</option> 
+		<option value="07RK2">07R TWY K2</option> 
+		<option value="25L">25L</option> 
+		<option value="25LJ10">25L TWY J10</option> 
+		<option value="25LJ9">25L TWY J9</option> 
+		<option value="25LK6">25L TWY K6</option> 
+		<option value="25R">25R</option> 
+		<option value="25RA11">25R TWY A11</option> 
+		<option value="LST">LST (show runway distances)</option> 
+		<option value="ALL">ALL (show runway codes)</option> 
+		<option value="ALL-RTOW">RTOW for all runways</option>
+     </select></div>
+   	<div class="ui-block-c"><input data-mini="true" type="TEXT" name="AGZFW" value=""></div>
+   	<div class="ui-block-d">ACT ZFW</div>
+    
+   	<div class="ui-block-a">OAT</div>	
+    <div class="ui-block-b"><input data-mini="true" type="TEXT" name="OAT" value="30"></div>
+   	<div class="ui-block-c"><input data-mini="true" type="TEXT" name="Surface" value="DRY"></div>
+   	<div class="ui-block-d">SURFACE</div>
+    
+   	<div class="ui-block-a">QNH</div>	
+    <div class="ui-block-b"><input data-mini="true" type="TEXT" name="QNH" value="1013"></div>
+   	<div class="ui-block-c"><select data-mini="true" name="FLAP">
+		<option value="OPT">OPT</option> 
+		<option value="F10">F10</option> 
+		<option value="F20">F20</option></select></div>
+   	<div class="ui-block-d">FLAPS</div>
+    
+   	<div class="ui-block-a">WIND H/T</div>	
+    <div class="ui-block-b"><select data-mini="true" name="WIND" onchange="ResetMAGDIR()">
+	<option value="   ">NA </option>
+	<option value="20H">20H</option>
+	<option value="19H">19H</option>
+	<option value="18H">18H</option>
+	<option value="17H">17H</option>
+	<option value="16H">16H</option>
+	<option value="15H">15H</option>
+	<option value="14H">14H</option>
+	<option value="13H">13H</option>
+	<option value="12H">12H</option>
+	<option value="11H">11H</option>
+	<option value="10H">10H</option>
+	<option value="9H">9H</option>
+	<option value="8H">8H</option>
+	<option value="7H">7H</option>
+	<option value="6H">6H</option>
+	<option value="5H">5H</option>
+	<option value="4H">4H</option>
+	<option value="3H">3H</option>
+	<option value="2H">2H</option>
+	<option value="1H">1H</option>
+	<option value="0" selected="">0</option>
+	<option value="1T">1T</option>
+	<option value="2T">2T</option>
+	<option value="3T">3T</option>
+	<option value="4T">4T</option>
+	<option value="5T">5T</option>
+	<option value="6T">6T</option>
+	<option value="7T">7T</option>
+	<option value="8T">8T</option>
+	<option value="9T">9T</option>
+	<option value="10T">10T</option>
+	<option value="11T">11T</option>
+	<option value="12T">12T</option>
+	<option value="13T">13T</option>
+	<option value="14T">14T</option>
+	<option value="15T">15T</option>
+	</select></div>
+   	<div class="ui-block-c"><select data-mini="true" name="Rating"> 
+		<option value="OPT">OPT</option> 
+		<option value="TO">TO</option> 
+		<option value="TO1">TO1</option> 
+		<option value="TO2">TO2</option></select>
+        </div>
+   	<div class="ui-block-d">RATING</div>
+
+   	<div class="ui-block-a">PACKS</div>	
+    <div class="ui-block-b"><select data-mini="true" name="Packs">
+    <option value="Y">Y (ON)</option>
+    <option value="N">N (OFF)</option>
+  </select></div>
+   	<div class="ui-block-c">  <select data-mini="true" name="MEL1">
+    <option value="N">Normal</option>
+    <option value="27-11-2">27-11-2         (OUTBD AILERON LOCKOUT SYS)</option>
+    <option value="27-81-1">27-81-1         (LEADING EDGE FLAPS DRV(PNEUMATIC))</option>
+    <option value="28-16-1">28-16-1         (RES 2 AND 3 XFR VLV)</option>
+    <option value="28-21-1A">28-21-1A        (REFUEL VLV FAILED OPEN RES TANK 2 OR 3)</option>
+    <option value="28-21-1B">28-21-1B        (REFUEL VLV FAILED OPEN MAIN TANK 1 OR 4)</option>
+    <option value="28-22-2">28-22-2         (FSMC A/FSMC B (RES TANK 2 AND 3 EMPTY))</option>
+    <option value="28-22-4">28-22-4         (STAB XFR SIG (RES TANK 2 AND 3 EMPTY))</option>
+    <option value="28-41-2">28-41-2         (MAIN TANKS 2 AND 3 RES TRANS SENSORS)</option>
+    <option value="28-41-5">28-41-5         (RES TANK FUEL QUANTITY INDICATING SYS)</option>
+    <option value="29-11-2">29-11-2         (#1 OR #4 DEMAND PUMPS)</option>
+    <option value="32-30-1">32-30-1         (LDG GEAR RET SYS)</option>
+    <option value="32-41-1A">32-41-1A        (WHEEL BRAKES - INSTALL BRK DEACT TOOL)</option>
+    <option value="32-41-1B">32-41-1B        (WHEEL BRAKES - DEACT BRK(S) BY CAPPING B)</option>
+    <option value="32-41-1C">32-41-1C        (WHEEL BRAKES - REMOVE INOP BRK)</option>
+    <option value="32-41-4">32-41-4         (IN-FLIGHT WHEEL BRAKING SYS)</option>
+    <option value="32-42-1A">32-42-1A        (ANTISKID SYS)</option>
+    <option value="32-42-1B">32-42-1B        (ANTISKID SYS (DEACT WITH DEACTIVATION TOOL))</option>
+    <option value="32-42-1C">32-42-1C        (ANTISKID SYS (DEACT BY CAPPING LINES OR BRAKE)</option>
+    <option value="32-42-1D">32-42-1D        (ANTISKID SYS (WHEELSPEED TRANSDUCERS))</option>
+    <option value="32-42-2">32-42-2         (ALTN ANTISKID VLV)</option>
+    <option value="32-42-4A">32-42-4A        (TORQUE LIMITER SYS (DEACT WITH DEACTIVATION T)</option>
+    <option value="32-42-4B">32-42-4B        (TORQUE LIMITER SYS (DEACT BY CAPPING LINES OR)</option>
+    <option value="32-61-1">32-61-1         (BODY AND WNG LDG GEAR UPLOCK PSN SENSORS)</option>
+    <option value="32-61-3">32-61-3         (WNG LDG GEAR DOWNLOCK PSN SENSORS)</option>
+    <option value="36-12-2">36-12-2         (FAN AIR CTRL SYS (REQD PACKS ON))</option>
+    <option value="49-15-1">49-15-1         (APU INLET DOOR)</option>
+    <option value="73-21-1A">73-21-1A        (MIN IDLE/APPR IDLE SEL SYS (1 SYS))</option>
+    <option value="73-21-1B">73-21-1B        (MIN IDLE/APPR IDLE SEL SYS (2 SYS))</option>
+    <option value="73-21-1C">73-21-1C        (MIN IDLE/APPR IDLE SEL SYS (3 SYS))</option>
+    <option value="73-21-1D">73-21-1D        (MIN IDLE/APPR IDLE SEL SYS (4 SYS))</option>
+    <option value="73-21-2">73-21-2         (EEC SYS)</option>
+    <option value="77-11-1">77-11-1         (ENG PRESSURE RATIO INDICATING SYS)</option>
+    <option value="78-31-1">78-31-1         (THRUST REVERSERS)</option>
+    <option value="78-34-1">78-34-1         (ENG REVERSE LEVEL INTERLOCK)</option>
+    <option value="78-36-1">78-36-1         (REV POS SENSING SYS)</option>
+  </select></div>
+   	<div class="ui-block-d">MEL-1</div>
+
+   	<div class="ui-block-a">NAC AI</div>	
+    <div class="ui-block-b"><select data-mini="true" name="ANTIICE">
+    <option value="N">N</option>
+    <option value="Y">Y</option>
+    </select></div>
+   	<div class="ui-block-c"><select data-mini="true" name="MEL2">
+      <option value="N">Normal</option>
+      <option value="27-11-2">27-11-2         (OUTBD AILERON LOCKOUT SYS)</option>
+      <option value="27-81-1">27-81-1         (LEADING EDGE FLAPS DRV(PNEUMATIC))</option>
+      <option value="28-16-1">28-16-1         (RES 2 AND 3 XFR VLV)</option>
+      <option value="28-21-1A">28-21-1A        (REFUEL VLV FAILED OPEN RES TANK 2 OR 3)</option>
+      <option value="28-21-1B">28-21-1B        (REFUEL VLV FAILED OPEN MAIN TANK 1 OR 4)</option>
+      <option value="28-22-2">28-22-2         (FSMC A/FSMC B (RES TANK 2 AND 3 EMPTY))</option>
+      <option value="28-22-4">28-22-4         (STAB XFR SIG (RES TANK 2 AND 3 EMPTY))</option>
+      <option value="28-41-2">28-41-2         (MAIN TANKS 2 AND 3 RES TRANS SENSORS)</option>
+      <option value="28-41-5">28-41-5         (RES TANK FUEL QUANTITY INDICATING SYS)</option>
+      <option value="29-11-2">29-11-2         (#1 OR #4 DEMAND PUMPS)</option>
+      <option value="32-30-1">32-30-1         (LDG GEAR RET SYS)</option>
+      <option value="32-41-1A">32-41-1A        (WHEEL BRAKES - INSTALL BRK DEACT TOOL)</option>
+      <option value="32-41-1B">32-41-1B        (WHEEL BRAKES - DEACT BRK(S) BY CAPPING B)</option>
+      <option value="32-41-1C">32-41-1C        (WHEEL BRAKES - REMOVE INOP BRK)</option>
+      <option value="32-41-4">32-41-4         (IN-FLIGHT WHEEL BRAKING SYS)</option>
+      <option value="32-42-1A">32-42-1A        (ANTISKID SYS)</option>
+      <option value="32-42-1B">32-42-1B        (ANTISKID SYS (DEACT WITH DEACTIVATION TOOL))</option>
+      <option value="32-42-1C">32-42-1C        (ANTISKID SYS (DEACT BY CAPPING LINES OR BRAKE)</option>
+      <option value="32-42-1D">32-42-1D        (ANTISKID SYS (WHEELSPEED TRANSDUCERS))</option>
+      <option value="32-42-2">32-42-2         (ALTN ANTISKID VLV)</option>
+      <option value="32-42-4A">32-42-4A        (TORQUE LIMITER SYS (DEACT WITH DEACTIVATION T)</option>
+      <option value="32-42-4B">32-42-4B        (TORQUE LIMITER SYS (DEACT BY CAPPING LINES OR)</option>
+      <option value="32-61-1">32-61-1         (BODY AND WNG LDG GEAR UPLOCK PSN SENSORS)</option>
+      <option value="32-61-3">32-61-3         (WNG LDG GEAR DOWNLOCK PSN SENSORS)</option>
+      <option value="36-12-2">36-12-2         (FAN AIR CTRL SYS (REQD PACKS ON))</option>
+      <option value="49-15-1">49-15-1         (APU INLET DOOR)</option>
+      <option value="73-21-1A">73-21-1A        (MIN IDLE/APPR IDLE SEL SYS (1 SYS))</option>
+      <option value="73-21-1B">73-21-1B        (MIN IDLE/APPR IDLE SEL SYS (2 SYS))</option>
+      <option value="73-21-1C">73-21-1C        (MIN IDLE/APPR IDLE SEL SYS (3 SYS))</option>
+      <option value="73-21-1D">73-21-1D        (MIN IDLE/APPR IDLE SEL SYS (4 SYS))</option>
+      <option value="73-21-2">73-21-2         (EEC SYS)</option>
+      <option value="77-11-1">77-11-1         (ENG PRESSURE RATIO INDICATING SYS)</option>
+      <option value="78-31-1">78-31-1         (THRUST REVERSERS)</option>
+      <option value="78-34-1">78-34-1         (ENG REVERSE LEVEL INTERLOCK)</option>
+      <option value="78-36-1">78-36-1         (REV POS SENSING SYS)</option>
+    </select></div>
+   	<div class="ui-block-d">MEL-2</div>
+
+   	<div class="ui-block-a">WING AI</div>	
+    <div class="ui-block-b"><input type="TEXT" name="WANTIICE" value="N"></div>
+   	<div class="ui-block-c"><input data-mini="true" type="TEXT" name="CDL" value="N"></div>
+   	<div class="ui-block-d">CDL</div>
+    
+</div>
+
+<div class="ui-grid-b" align="center">
+	<div class="ui-block-a">Block A</div>	
+    <div class="ui-block-b">
+      <input name="SEND" value="SEND" type="button" onClick="loadNewPage('www.google.com');">
+    </div>
+   	<div class="ui-block-c">Block C</div>
+</div>
+
+<input type="HIDDEN" name="ACType" value="400G"> 
+<input type="HIDDEN" name="apcode" value="HKG"> 
+<input type="HIDDEN" name="ICAO" value="VHHH"> 
+<input type="HIDDEN" name="ACREG" value="HOO "> 
+<input type="HIDDEN" name="FLTNUM" value="CX000"> 
+<input type="HIDDEN" name="WINDMAG" value="0"> 
+<input type="HIDDEN" name="WINDDIR" value="0"> 
+
+
+<!--
+<div id="HeadTail" style="visibility:visible">WIND H/T(KTS):
+	<br>or </div>
+<div id="WindHT" style="visibility:visible">WIND DIR(°)/MAG (KTS):<br>
+<select data-mini="true" name="WINDDIR" onchange="ResetWindHT()">
+<option value="0">0</option>
+<option value="10">10</option>
+<option value="20">20</option>
+<option value="30">30</option>
+<option value="40">40</option>
+<option value="50">50</option>
+<option value="60">60</option>
+<option value="70">70</option>
+<option value="80">80</option>
+<option value="90">90</option>
+<option value="100">100</option>
+<option value="110">110</option>
+<option value="120">120</option>
+<option value="130">130</option>
+<option value="140">140</option>
+<option value="150">150</option>
+<option value="160">160</option>
+<option value="170">170</option>
+<option value="180">180</option>
+<option value="190">190</option>
+<option value="200">200</option>
+<option value="210">210</option>
+<option value="220">220</option>
+<option value="230">230</option>
+<option value="240">240</option>
+<option value="250">250</option>
+<option value="260">260</option>
+<option value="270">270</option>
+<option value="280">280</option>
+<option value="290">290</option>
+<option value="300">300</option>
+<option value="310">310</option>
+<option value="320">320</option>
+<option value="330">330</option>
+<option value="340">340</option>
+<option value="350">350</option>
+<option value="360">360</option>
+</select>/<select data-mini="true" name="WINDMAG" onchange="ResetWindHT()">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+<option value="32">32</option>
+<option value="33">33</option>
+<option value="34">34</option>
+<option value="35">35</option>
+<option value="36">36</option>
+<option value="37">37</option>
+<option value="38">38</option>
+<option value="39">39</option>
+<option value="40">40</option>
+</select></div>
+
+</form>	-->
+	</div>
+    </div>
+    </div> 
+	<div data-role="footer">
+		<h4>OPS ENG, CX FOP</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page3">
+	<div data-role="header">
+		<h1>Page Three</h1>
+	</div>
+	<div data-role="content">	
+		Content		
+	</div>
+	<div data-role="footer">
+		<h4>OPS ENG, CX FOP</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page4">
+	<div data-role="header">
+		<h1>Page Four</h1>
+	</div>
+	<div data-role="content">	
+		Content		
+	</div>
+	<div data-role="footer">
+		<h4>OPS ENG, CX FOP</h4>
+	</div>
+</div>
+
+<div data-role="page" id="resultPage">
+	<div data-role="header">
+		<h1>Result Page</h1>
+	</div>
+	<div data-role="content">	
+		Result	
+	</div>
+	<div data-role="footer">
+		<h4>OPS ENG, CX FOP</h4>
+	</div>
+</div>
+
+</body>
+</html>
