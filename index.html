@@ -12,12 +12,23 @@
 
 <script language="javascript">
 
-function loadNewPage(temp) {
+function loadNewPage() {
+
 	var req = new XMLHttpRequest();
+//	var temp = "http://rtow.no-ip.org:8080/cgi-bin/ACARS2.pl?ACREG=" + document.ACARS2.ACREG.value + "&FLTNUM="+ document.ACARS2.FLTNUM.value + "&ACType=" + document.ACARS2.ACType.value + "&apcode="+ document.ACARS2.apcode.value + "&ICAO="+ document.ACARS2.ICAO.value + "&AGTOW="+ document.ACARS2.AGTOW.value + "&Rwy=" + document.ACARS2.Rwy.value + "&OAT="+ document.ACARS2.OAT.value + "&Surface=" + document.ACARS2.Surface.value + "&QNH="+ document.ACARS2.QNH.value + "&Packs="+ document.ACARS2.Packs.value + "&Rating="+ document.ACARS2.Rating.value + "&FLAP="+ document.ACARS2.FLAP.value + "&MEL1="+ document.ACARS2.MEL1.value + "&MEL2="+ document.ACARS2.MEL2.value + "&CDL="+ document.ACARS2.CDL.value + "&WINDDIR=" + document.ACARS2.WINDDIR.value + "&WINDMAG="+ document.ACARS2.WINDMAG.value + "&WIND=" + document.ACARS2.WIND.value + "&ANTIICE="+ document.ACARS2.ANTIICE.value + "&WANTIICE="+ document.ACARS2.WANTIICE.value;
+	
+		var temp = "http://rtwnt04.cathaypacific.com/cgi-bin/ACARS2.pl?ACREG=" + document.ACARS2.ACREG.value + "&FLTNUM="+ document.ACARS2.FLTNUM.value + "&ACType=" + document.ACARS2.ACType.value + "&apcode="+ document.ACARS2.apcode.value + "&ICAO="+ document.ACARS2.ICAO.value + "&AGTOW="+ document.ACARS2.AGTOW.value + "&Rwy=" + document.ACARS2.Rwy.value + "&OAT="+ document.ACARS2.OAT.value + "&Surface=" + document.ACARS2.Surface.value + "&QNH="+ document.ACARS2.QNH.value + "&Packs="+ document.ACARS2.Packs.value + "&Rating="+ document.ACARS2.Rating.value + "&FLAP="+ document.ACARS2.FLAP.value + "&MEL1="+ document.ACARS2.MEL1.value + "&MEL2="+ document.ACARS2.MEL2.value + "&CDL="+ document.ACARS2.CDL.value + "&WINDDIR=" + document.ACARS2.WINDDIR.value + "&WINDMAG="+ document.ACARS2.WINDMAG.value + "&WIND=" + document.ACARS2.WIND.value + "&ANTIICE="+ document.ACARS2.ANTIICE.value + "&WANTIICE="+ document.ACARS2.WANTIICE.value;
+
+//	var temp="http://www.google.com";
+	
 	req.open("GET", temp, false);
 	req.send(null);
 	var page = req.responseText;
+	
+//	document.write(page);
+
 	document.getElementById("content").innerHTML = page;
+
 }
 
 </script>
@@ -38,7 +49,6 @@ function loadNewPage(temp) {
             <li><a href="#resultPage">Result Page</a></li>
 		</ul>	
 -->
-
 
    <div class="ui-grid-b" align="center">
 	<div class="ui-block-a">Block A</div>	
@@ -85,7 +95,7 @@ action="http://rtow.no-ip.org:8080/cgi-bin/ACARS2.pl?ACREG='+ document.ACARS2.AC
 -->
           <div data-role="fieldcontain">
           
-   
+<form name="ACARS2" onSubmit="loadNewPage()">
    <div>B-HOO 747-400 with 524G engines</div>
 <div id="tail">HOP</div>
 <p>Departure port : VHHH (HKG)
@@ -285,7 +295,7 @@ action="http://rtow.no-ip.org:8080/cgi-bin/ACARS2.pl?ACREG='+ document.ACARS2.AC
 <div class="ui-grid-b" align="center">
 	<div class="ui-block-a">Block A</div>	
     <div class="ui-block-b">
-      <input name="SEND" value="SEND" type="button" onClick="loadNewPage('www.google.com');">
+      <input name="SEND" value="SEND" type="button" onClick="loadNewPage();">
     </div>
    	<div class="ui-block-c">Block C</div>
 </div>
@@ -293,11 +303,12 @@ action="http://rtow.no-ip.org:8080/cgi-bin/ACARS2.pl?ACREG='+ document.ACARS2.AC
 <input type="HIDDEN" name="ACType" value="400G"> 
 <input type="HIDDEN" name="apcode" value="HKG"> 
 <input type="HIDDEN" name="ICAO" value="VHHH"> 
-<input type="HIDDEN" name="ACREG" value="HOO "> 
+<input type="HIDDEN" name="ACREG" value="HOO"> 
 <input type="HIDDEN" name="FLTNUM" value="CX000"> 
 <input type="HIDDEN" name="WINDMAG" value="0"> 
 <input type="HIDDEN" name="WINDDIR" value="0"> 
 
+</form>
 
 <!--
 <div id="HeadTail" style="visibility:visible">WIND H/T(KTS):
